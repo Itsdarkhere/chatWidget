@@ -23,7 +23,7 @@ export const useChatWidget = () => {
 
 export function ChatWidgetProvider({ children }: { children: React.ReactNode }) {
     const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
-    
+
     const initialMessages: Message[] = [{id: '1', role: 'assistant', content: 'Hey how can I help you today?'}]
     const { messages, input, handleInputChange, handleSubmit } =
     useChat({
@@ -50,7 +50,7 @@ export function ChatWidgetProvider({ children }: { children: React.ReactNode }) 
     >
       {children}
       {isChatOpen && (
-        <div className="fixed flex flex-col bottom-3 right-3 w-1/3 h-2/3 z-30 text-gray-900 bg-white shadow-2xl py-3 rounded-lg border border-gray-200">
+        <div className="fixed flex flex-col bottom-3 right-3 w-96 max-w-[100vw] h-2/3 max-h-[100vh] z-30 text-gray-900 bg-white shadow-2xl py-3 rounded-lg border border-gray-200">
             {/* Header */}
             <div className="px-4 w-full py-2 border-b border-gray-200 mb-2 flex justify-between items-center">
                 <span className="font-semibold text-lg">Chat Interface</span>
