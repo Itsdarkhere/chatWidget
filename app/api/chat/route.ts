@@ -2,9 +2,8 @@ import { Configuration, OpenAIApi } from 'openai-edge'
 import { OpenAIStream, StreamingTextResponse } from 'ai'
  
 export const runtime = 'edge'
-const OPENAI_API_KEY = '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';
 const apiConfig = new Configuration({
-  apiKey: OPENAI_API_KEY,
+  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
 })
  
 const openai = new OpenAIApi(apiConfig)

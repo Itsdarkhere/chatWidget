@@ -1,9 +1,8 @@
 import { NextRequest } from "next/server";
 import OpenAI from "openai";
 
-const OPENAI_API_KEY = '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';
 const openai = new OpenAI({
-    apiKey: OPENAI_API_KEY,
+    apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
 });
 
 export async function POST(request: NextRequest) {
