@@ -23,9 +23,7 @@ export const useChatWidget = () => {
 
 export function ChatWidgetProvider({ children }: { children: React.ReactNode }) {
     const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
-    // const [messages, setMessages] = useState<Array<{ sender: 'user' | 'bot', prompt: string }>>([]);
-    // const [inputValue, setInputValue] = useState('');
-
+    
     const initialMessages: Message[] = [{id: '1', role: 'assistant', content: 'Hey how can I help you today?'}]
     const { messages, input, handleInputChange, handleSubmit } =
     useChat({
@@ -37,30 +35,6 @@ export function ChatWidgetProvider({ children }: { children: React.ReactNode }) 
         }
       }
     })
-
-    // const sendMessage = async () => {
-    //     // Append user message to messages
-    //     setMessages([...messages, { sender: 'user', prompt: inputValue }]);
-
-    //     try {
-    //         const response = await fetch('/api/chat', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify({ message: inputValue }),
-    //         });
-
-    //         const data = await response.json();
-
-    //         // Append bot (OpenAI) message to messages
-    //         setMessages([...messages, { sender: 'user', prompt: inputValue }, { sender: 'bot', prompt: data.message }]);
-    //     } catch (error) {
-    //         console.error('Error sending message:', error);
-    //     }
-
-    //     setInputValue('');
-    // };
 
     const openChat = () => {
         setIsChatOpen(true);
